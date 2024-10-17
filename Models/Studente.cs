@@ -19,5 +19,10 @@ namespace Studenti.Models
             this.Cognome = Cognome;
             this.Nome = Nome;
         }
+
+        public override string ToString()
+        {
+            return $"{Matricola} - {Cognome} {Nome}";
+        }
     }
 }
