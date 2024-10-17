@@ -40,5 +40,24 @@ namespace Studenti.Controllers
             archivio.Add(new Studente(matricola, cognome, nome));
             return true;
         }
+
+        public bool Remove(string matricola)
+        {
+            Studente s = getOne(matricola);
+            if( s==null) return false;
+
+            archivio.Remove(s);
+            return true;
+        }
+
+        public bool Edit(string matricola, string cognome, string nome)
+        {
+            Studente s = getOne(matricola);
+            if (s == null) return false;
+            
+            s.Cognome = cognome;
+            s.Nome = nome;
+            return true;
+        }
     }
 }

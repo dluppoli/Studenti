@@ -57,8 +57,28 @@ namespace Studenti
                             Console.WriteLine("Matricola esistente");
                         break;
                     case "4":
+                        Console.Write("Inserire matricola: ");
+                        string m2 = Console.ReadLine();
+                        if (controller.getOne(m2) == null)
+                            Console.WriteLine("Matricola non trovata");
+                        else
+                        {
+                            Console.Write("Inserire cognome: ");
+                            string c2 = Console.ReadLine();
+                            Console.Write("Inserire nome: ");
+                            string n2 = Console.ReadLine();
+                            if (controller.Edit(m2, c2, n2))
+                                Console.WriteLine("Aggiornamento eseguito con successo");
+                            else
+                                Console.WriteLine("Matricola non trovata");
+                        }
                         break;
                     case "5":
+                        Console.Write("Inserire matricola: ");
+                        if (controller.Remove(Console.ReadLine()))
+                            Console.WriteLine("Cancellazione eseguita con successo");
+                        else
+                            Console.WriteLine("Matricola non trovata");
                         break;
                     case "9":
                         Console.WriteLine("Arrivederci");
